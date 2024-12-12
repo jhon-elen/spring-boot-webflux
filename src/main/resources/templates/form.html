@@ -11,7 +11,7 @@
         <a th:href="@{/listar}">Volver</a>
 
         <form th:action="@{/form}" method="post" th:object="${producto}">
-            <!-- <input type="hidden" th:if="${producto.id != null}" th:field="*{id}"/> -->
+            <input type="hidden" th:if="${producto.id != null}" th:field="*{id}"/>
             <div>
                 <label for="nombre">Nombre</label>
                 <div>
@@ -30,6 +30,16 @@
                 <label for="create">Fecha Creación</label>
                 <div>
                     <input type="date" id="create" th:field="*{createdAt}" />
+                </div>
+            </div>
+            <div>
+                <label for="categoria.id">Categoría</label>
+                <div>
+                    <select id="categoria.id" th:field="*{categoria.id}" >
+                        <option value="">-- seleccionar --</option>
+                        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+                    </select>
+                    <small th:if="${#fields.hasErrors('categoria.id')}" th:errors="*{categoria.id}"></small>
                 </div>
             </div>
             <div>
