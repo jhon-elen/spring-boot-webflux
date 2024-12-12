@@ -1,5 +1,6 @@
 package com.bolsadeideas.springboot.webflux.spring_boot_webflux.models.documents;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
@@ -23,6 +24,7 @@ public class Producto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
 
+    @Valid
     private Categoria categoria;
 
     public Producto() {
