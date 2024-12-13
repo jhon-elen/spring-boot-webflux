@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <a th:href="@{/listar}">volver</a>
+
+    <div>
+        <li th:text="${producto.nombre}"></li>
+        <li th:text="'Id: ' + ${producto.id}"></li>
+        <li th:text="'Precio: ' + ${#numbers.formatCurrency(producto.precio)}"></li>
+        <li th:text="'Fecha: ' + ${#calendars.format(producto.createdAt, 'dd/MM/yyyy')}"></li>
+    </div>
+
+</body>
+</html>
